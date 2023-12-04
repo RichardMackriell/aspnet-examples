@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <h2>Random Number Is</h2>
+    <p>@Model.RandomNumber</p>
+
+</div>
+<hr/>
+@if (!string.IsNullOrEmpty(Model.FirstName))
+{
+    <h2>Person Details</h2>
+    <table class="text-center">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Id</th>
+        </tr>
+        <tr>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+            <td>@Model.Id</td>
+        </tr>
+    </table>
+} else {
+<form method="post" class="text-center">
+    <label>First Name</label>
+    <input name="firstName" id="firstName" />
+    <br/>
+    <label>Last Name</label>
+    <input name="lastName" id="lastName" />
+    <br/>
+    <label>Id</label>
+    <input name="id" id="id" />
+
+    <br/>
+    <button type="submit">Submit</button>
+</form>
+}
